@@ -5,6 +5,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import HomeView from "./views/Home.js";
 import CounterView from "./views/Counter.js";
+import ComparatorView from "./views/Comparator.js";
+import TrendView from "./views/Trend.js";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -28,7 +30,7 @@ export default function App() {
         />
         <Tab.Screen 
           name="Comparator"
-          component={CounterView} 
+          component={ComparatorView} 
           options={{
             tabBarLabel: 'Comparator',
             tabBarIcon: ({ color }) => (
@@ -37,12 +39,12 @@ export default function App() {
           }} 
         />
         <Tab.Screen 
-          name="Counter" 
-          component={CounterView}
+          name="Trend" 
+          component={TrendView}
           options={{
-            tabBarLabel: 'Counter',
+            tabBarLabel: 'Trend',
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="counter" color={color} size={26} />
+              <MaterialCommunityIcons name="trending-up" color={color} size={26} />
             ),
           }} 
         />
