@@ -1,7 +1,14 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 
 export default function App() {
+  let [counter, setCounter] = React.useState(0);
+
+  function incrementCounter() {
+    let res = counter++;
+    setCounter(res);
+  }
+
   return (
     <View
       style={{
@@ -10,7 +17,9 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <Text>Universal React with Expo</Text>
+      <Text>Welcome to stb-smart</Text>
+      <Text>counter : {counter}</Text>
+      <Button onPress={incrementCounter} title="click me !"/>
     </View>
   );
 }
