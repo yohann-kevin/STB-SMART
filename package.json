@@ -18,7 +18,11 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "build-ios": "expo build:ios",
+    "build-ios-simulator": "expo build:ios -t simulator",
+    "build-android": "expo build:android",
+    "build-android-apk": "expo build:android -t apk"
   },
   "private": true
 }
