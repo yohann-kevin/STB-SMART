@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "stb-smart",
+    "slug": "stb-smart",
+    "version": "1.0.0",
+    "sdkVersion": "42.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ]
+  }
+}

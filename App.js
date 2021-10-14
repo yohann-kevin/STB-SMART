@@ -4,7 +4,6 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import HomeView from "./views/Home.js";
-import CounterView from "./views/Counter.js";
 import ComparatorView from "./views/Comparator.js";
 import TrendView from "./views/Trend.js";
 
