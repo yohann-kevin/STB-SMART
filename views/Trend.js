@@ -1,13 +1,13 @@
 import * as React from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, FlatList, StyleSheet } from "react-native";
 
 import axios from "axios";
 
 import TrendProduct from "./components/TrendProduct";
+import TrendImage from "./components/TrendImage";
 
-export default function TrendView() {
-  let [trend, setTrend] = React.useState(null);
-  let trendProduct = [];
+export default function TrendView() {;
+  const [data, setData] = React.useState([]);
 
   React.useEffect(() => {
     findTrend();
@@ -15,26 +15,48 @@ export default function TrendView() {
 
   function findTrend() {
     let url = "https://scrapysneake.herokuapp.com/trend";
+    // let url = "https://scrapysneake.herokuapp.com/sneakers/find/most_wanted";
 
     axios.get(url).then(response => {
-      setTrend(response.data);
-      displaySneaker();
+      setData(response.data);
     });
   }
 
-  function displaySneaker() {
-    for (let i = 0; i < trend.length; i++) {
-      console.log(trend[i].model);
-      trendProduct.push(
-        <TrendProduct sneaker={trend[i]}/>
-      );
-    }
-  }
-
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Trend Screen</Text>
-      {trendProduct}
+    <View style={styles.container}>
+      <Text style={styles.title}>Trend</Text>
+      <FlatList
+            style={styles.list}
+            data={data}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => (
+              <>
+                <TrendImage image={item.image_path} />
+                <TrendProduct sneaker={item} />
+              </>
+            )}
+          />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#8d39fa"
+  },
+  item: {
+    padding: 20,
+    marginHorizontal: 16,
+  },
+  title: {
+    padding: 3,
+    fontSize: 32,
+    textAlign: "center",
+    backgroundColor: "#8d39fa",
+    color: "#fff"
+  },
+  price: {
+    textAlign: "right"
+  }
+});
