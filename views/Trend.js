@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import { View, Text, FlatList, StyleSheet, TouchableOpacity, Linking } from "react-native";
 
 import axios from "axios";
 
@@ -22,6 +22,10 @@ export default function TrendView() {;
     });
   }
 
+  // openSellerSite = (url) => {
+  //   Linking.openURL(url);
+  // }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Trend</Text>
@@ -31,8 +35,10 @@ export default function TrendView() {;
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
               <>
-                <TrendImage image={item.image_path} />
-                <TrendProduct sneaker={item} />
+                <TouchableOpacity onPress={() => { Linking.openURL(item.image_path) }}>
+                  <TrendImage image={item.image_path} />
+                  <TrendProduct sneaker={item} />
+                </TouchableOpacity>
               </>
             )}
           />

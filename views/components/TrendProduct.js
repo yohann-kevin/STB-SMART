@@ -6,8 +6,9 @@ export default function TrendProduct(props) {
 
   return (
     <View style={styles.item}>
-      <Text>{ sneaker.model }</Text>
+      <Text style={styles.model}>{ sneaker.model }</Text>
       <Text style={styles.price}>{ sneaker.price }</Text>
+      <Text style={styles.seller}>Disponible chez <Text style={styles.sellerName}>{sneaker.seller_name}</Text></Text>
     </View>
   );
 }
@@ -22,13 +23,25 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     flexDirection: "row",
     flex: 1,
+    flexWrap: "wrap",
     borderBottomStartRadius: 15,
     borderBottomEndRadius: 15,
     marginBottom: 10
   },
+  model: {
+    width: "75%"
+  },
   price: {
     textAlign: "right",
-    flex: 2
+    flex: 2,
+    width: "25%"
   },
+  seller: {
+    marginTop: 10,
+    width: "100%"
+  },
+  sellerName: {
+    color: "orange"
+  }
 });
 
