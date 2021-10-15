@@ -1,10 +1,10 @@
 import * as React from "react";
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, Linking } from "react-native";
 
-import axios from "axios";
-
 import TrendProduct from "./components/TrendProduct";
 import TrendImage from "./components/TrendImage";
+
+import { getSneakerTrend } from '../api/scrapysneake.js';
 
 export default function TrendView() {;
   const [data, setData] = React.useState([]);
@@ -14,12 +14,7 @@ export default function TrendView() {;
   }, []);
 
   function findTrend() {
-    let url = "https://scrapysneake.herokuapp.com/trend";
-    // let url = "https://scrapysneake.herokuapp.com/sneakers/find/most_wanted";
-
-    axios.get(url).then(response => {
-      setData(response.data);
-    });
+    getSneakerTrend().then(data => { setData(data) });
   }
 
   return (

@@ -4,19 +4,16 @@ import { View, Text, Button, SafeAreaView, StyleSheet, TextInput, FlatList } fro
 import ComparatorImage from "./components/ComparatorImage";
 import ComparatorProduct from "./components/ComparatorProduct";
 
-import axios from "axios";
+import { getSneakerByModel } from '../api/scrapysneake.js';
 
 export default function ComparatorView() {
   const [sneakerSearch, setSneakerSearch] = React.useState("");
   const [sneaker, setSneaker] = React.useState([]);
 
-  function findSneaker(txt) {
-    let url = "https://scrapysneake.herokuapp.com/trend";
-    console.log(txt);
-    if (txt != "") {
-      axios.get(url).then(response => {
-        setSneaker(response.data);
-      })
+  function findSneaker(model) {
+    console.log(model);
+    if (model != "") {
+      getSneakerByModel(model).then(data => { setSneaker(data) });
     } else {
       setSneaker([]);
     }
@@ -33,7 +30,6 @@ export default function ComparatorView() {
         />
       </SafeAreaView>
        <FlatList
-        // style={styles.list}
         data={sneaker}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
@@ -50,7 +46,6 @@ export default function ComparatorView() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "#8d39fa"
   },
   title: {
     padding: 3,
@@ -64,8 +59,5 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
-  },
-  list: {
-    backgroundColor: "blue"
   }
 });
