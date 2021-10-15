@@ -22,10 +22,6 @@ export default function TrendView() {;
     });
   }
 
-  // openSellerSite = (url) => {
-  //   Linking.openURL(url);
-  // }
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Trend</Text>
