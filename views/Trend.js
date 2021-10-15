@@ -26,7 +26,6 @@ export default function TrendView() {;
     <View style={styles.container}>
       <Text style={styles.title}>Trend</Text>
       <FlatList
-        style={styles.list}
         data={data}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
@@ -47,18 +46,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#8d39fa"
   },
-  item: {
-    padding: 20,
-    marginHorizontal: 16,
-  },
   title: {
     padding: 3,
     fontSize: 32,
     textAlign: "center",
     backgroundColor: "#8d39fa",
     color: "#fff"
-  },
-  price: {
-    textAlign: "right"
   }
 });

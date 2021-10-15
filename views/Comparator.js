@@ -1,6 +1,9 @@
 import * as React from "react";
 import { View, Text, Button, SafeAreaView, StyleSheet, TextInput, FlatList } from "react-native";
 
+import ComparatorImage from "./components/ComparatorImage";
+import ComparatorProduct from "./components/ComparatorProduct";
+
 import axios from "axios";
 
 export default function ComparatorView() {
@@ -10,10 +13,13 @@ export default function ComparatorView() {
   function findSneaker(txt) {
     let url = "https://scrapysneake.herokuapp.com/trend";
     console.log(txt);
-    axios.get(url).then(response => {
-      // console.log(response.data);
-      setSneaker(response.data);
-    })
+    if (txt != "") {
+      axios.get(url).then(response => {
+        setSneaker(response.data);
+      })
+    } else {
+      setSneaker([]);
+    }
   }
 
   return (
@@ -31,7 +37,10 @@ export default function ComparatorView() {
         data={sneaker}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <Text>{item.model}</Text>
+          <>
+            <ComparatorImage image={item.image_path} />
+            <ComparatorProduct sneaker={item} />
+          </>
         )}
       />
     </View>
@@ -55,5 +64,8 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+  },
+  list: {
+    backgroundColor: "blue"
   }
 });
