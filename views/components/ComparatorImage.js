@@ -3,6 +3,15 @@ import { View, StyleSheet, Image } from "react-native";
 
 export default function ComparatorImage(props) {
   const [image, setImage] = React.useState(props.image);
+  const [seller, setSeller] = React.useState(props.seller);
+
+  React.useEffect(() => {
+    manageSellerImage();
+  }, []);
+
+  function manageSellerImage() {
+    if (seller.toLowerCase() == "foot locker") setImage("https://" + image);
+  }
 
   return (
     <View style={styles.container}>

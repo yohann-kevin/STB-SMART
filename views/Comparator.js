@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text, Button, SafeAreaView, StyleSheet, TextInput, FlatList, Pressable } from "react-native";
+import { View, Text, SafeAreaView, StyleSheet, TextInput, FlatList, Pressable, TouchableOpacity, Linking } from "react-native";
 import { Header } from 'react-native-elements';
 
 import ComparatorImage from "./components/ComparatorImage";
@@ -33,7 +33,7 @@ export default function ComparatorView() {
           onChangeText={text => findModelWrite(text)}
         />
         <Pressable style={styles.btn} onPress={findSneaker}>
-          <Text style={styles.btnText}>Search !</Text>
+          <Text style={styles.btnText}>Find sneakers at the best price !</Text>
         </Pressable>
       </SafeAreaView>
        <FlatList
@@ -41,8 +41,10 @@ export default function ComparatorView() {
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <>
-            <ComparatorImage image={item.image_path} />
-            <ComparatorProduct sneaker={item} />
+            <TouchableOpacity onPress={() => { Linking.openURL(item.link) }}>
+              <ComparatorImage image={item.image_path} seller={item.seller} />
+              <ComparatorProduct sneaker={item} />
+            </TouchableOpacity>
           </>
         )}
       />
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     marginHorizontal: 12,
-    marginTop: 12,
+    marginTop: 5,
     borderWidth: 2,
     borderColor: "#8d39fa",
     padding: 10,
