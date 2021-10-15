@@ -1,5 +1,6 @@
 import * as React from "react";
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, Linking } from "react-native";
+import { Header } from 'react-native-elements';
 
 import TrendProduct from "./components/TrendProduct";
 import TrendImage from "./components/TrendImage";
@@ -19,7 +20,11 @@ export default function TrendView() {;
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Trend</Text>
+      <Header
+        backgroundColor="#8d39fa"
+        placement="center"
+        centerComponent={{ text: 'Comparator', style: { color: '#fff', fontSize: 20 } }}
+      />
       <FlatList
         data={data}
         keyExtractor={item => item.id}
@@ -40,12 +45,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#8d39fa"
-  },
-  title: {
-    padding: 3,
-    fontSize: 32,
-    textAlign: "center",
-    backgroundColor: "#8d39fa",
-    color: "#fff"
   }
 });

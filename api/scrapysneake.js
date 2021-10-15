@@ -9,7 +9,7 @@ export function getSneakerTrend() {
 }
 
 export function getSneakerByModel(model) {
-    let road = "sneakers/find";
+    let road = "sneakers/find/";
 
     return fetch(url + road + model)
         .then((response) => response.json())
