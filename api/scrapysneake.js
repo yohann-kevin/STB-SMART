@@ -15,3 +15,11 @@ export function getSneakerByModel(model) {
         .then((response) => response.json())
         .catch((err) => console.log(err))
 }
+
+export function getSneakerCount() {
+    let road = "sneakers/count/all";
+
+    return fetch(url + road)
+        .then((response) => response.json())
+        .catch((err) => console.log(err))
+}
