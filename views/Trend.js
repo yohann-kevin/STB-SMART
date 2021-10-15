@@ -26,18 +26,18 @@ export default function TrendView() {;
     <View style={styles.container}>
       <Text style={styles.title}>Trend</Text>
       <FlatList
-            style={styles.list}
-            data={data}
-            keyExtractor={item => item.id}
-            renderItem={({ item }) => (
-              <>
-                <TouchableOpacity onPress={() => { Linking.openURL(item.image_path) }}>
-                  <TrendImage image={item.image_path} />
-                  <TrendProduct sneaker={item} />
-                </TouchableOpacity>
-              </>
-            )}
-          />
+        style={styles.list}
+        data={data}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => (
+          <>
+            <TouchableOpacity onPress={() => { Linking.openURL(item.image_path) }}>
+              <TrendImage image={item.image_path} />
+              <TrendProduct sneaker={item} />
+            </TouchableOpacity>
+          </>
+        )}
+      />
     </View>
   );
 }
