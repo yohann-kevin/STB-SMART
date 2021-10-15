@@ -23,3 +23,11 @@ export function getSneakerCount() {
         .then((response) => response.json())
         .catch((err) => console.log(err))
 }
+
+export function getSneakerAdvert() {
+    let road = "advert";
+
+    return fetch(url + road)
+        .then((response) => response.json())
+        .catch((err) => console.log(err))
+}
