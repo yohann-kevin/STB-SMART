@@ -9,6 +9,21 @@
       "android",
       "web"
     ],
+    "icon": "./assets/logo/sneake-toi-bien-white.png",
+    "splash": {
+      "image": "./assets/logo/sneake-toi-bien-white.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo/sneake-toi-bien-white.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/logo/sneake-toi-bien-white.png"
+    },
     "description": "Sneakers price comparator",
     "githubUrl": "https://github.com/yohann-kevin/STB-SMART.git"
   }
