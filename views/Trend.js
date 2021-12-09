@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text, FlatList, StyleSheet, TouchableOpacity, Linking } from "react-native";
+import { View, FlatList, StyleSheet, TouchableOpacity, Linking } from "react-native";
 import { Header } from 'react-native-elements';
 
 import TrendProduct from "./components/TrendProduct";
@@ -23,7 +23,7 @@ export default function TrendView() {;
       <Header
         backgroundColor="#8d39fa"
         placement="center"
-        centerComponent={{ text: 'Comparator', style: { color: '#fff', fontSize: 20 } }}
+        centerComponent={{ text: 'Trend', style: { color: '#fff', fontSize: 20 } }}
       />
       <FlatList
         data={data}

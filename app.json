@@ -8,6 +8,8 @@
       "ios",
       "android",
       "web"
-    ]
+    ],
+    "description": "Sneakers price comparator",
+    "githubUrl": "https://github.com/yohann-kevin/STB-SMART.git"
   }
 }
