@@ -9,7 +9,7 @@
       "android",
       "web"
     ],
-    "icon": "./assets/logo/sneake-toi-bien-white.png",
+    "icon": "./assets/logo/adaptive.png",
     "splash": {
       "image": "./assets/logo/sneake-toi-bien-white.png",
       "resizeMode": "contain",
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logo/sneake-toi-bien-white.png",
+        "foregroundImage": "./assets/logo/adaptive.png",
         "backgroundColor": "#FFFFFF"
       }
     },
