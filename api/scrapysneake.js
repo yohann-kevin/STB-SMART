@@ -1,7 +1,7 @@
 const url = "https://scrapysneake.herokuapp.com/";
 
 export function getSneakerTrend() {
-    let road = "trend";
+    let road = "sneakers/find/most_wanted";
     
     return fetch(url + road)
         .then((response) => response.json())

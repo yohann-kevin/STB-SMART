@@ -8,7 +8,7 @@ export default function TrendProduct(props) {
     <View style={styles.item}>
       <Text style={styles.model}>{ sneaker.model }</Text>
       <Text style={styles.price}>{ sneaker.price }</Text>
-      <Text style={styles.seller}>Disponible chez <Text style={styles.sellerName}>{sneaker.seller_name}</Text></Text>
+      <Text style={styles.seller}>Disponible chez <Text style={styles.sellerName}>{sneaker.seller}</Text></Text>
     </View>
   );
 }

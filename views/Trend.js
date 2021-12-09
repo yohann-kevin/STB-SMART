@@ -30,8 +30,8 @@ export default function TrendView() {;
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <>
-            <TouchableOpacity onPress={() => { Linking.openURL(item.image_path) }}>
-              <TrendImage image={item.image_path} />
+            <TouchableOpacity onPress={() => { Linking.openURL(item.link) }}>
+              <TrendImage image={item} />
               <TrendProduct sneaker={item} />
             </TouchableOpacity>
           </>

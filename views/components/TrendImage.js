@@ -2,7 +2,15 @@ import * as React from "react";
 import { View, StyleSheet, Image } from "react-native";
 
 export default function TrendImage(props) {
-  const [image, setImage] = React.useState(props.image);
+  const [image, setImage] = React.useState(props.image.image_path);
+
+  React.useEffect(() => {
+    checkSeller();
+  }, []);
+
+  function checkSeller() {
+    if (props.image.seller === "Foot Locker") setImage("https://" + image);
+  }
 
   return (
     <View style={styles.container}>
